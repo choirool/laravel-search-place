@@ -1,0 +1,39 @@
+{
+    "name": "choirool/laravel-search-place",
+    "description": "Laravel search place",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Choirool",
+            "email": "khoiroelf@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Choirool\\SearchPlace\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Choirool\\SearchPlace\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Choirool\\SearchPlace\\SearchPlaceServiceProvider"
+            ],
+            "aliases": {
+                "SearchPlace": "Choirool\\SearchPlace\\Facades\\SearchPlace"
+            }
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "orchestra/testbench": "^4.0"
+    }
+}
