@@ -16,13 +16,13 @@ class Formatter
     {
         $results = [];
 
-        foreach ($this->data['candidates'] as $candidate) {
+        foreach ($this->data['features'] as $features) {
             $results[] = [
-                'name' => $candidate['name'],
-                'address' => $candidate['formatted_address'],
+                'name' => $features['place_name'],
+                'address' => $features['properties']['address'],
                 'geometry' => [
-                    'lat' => $candidate['geometry']['location']['lat'],
-                    'lng' => $candidate['geometry']['location']['lng'],
+                    'lat' => $features['geometry']['coordinates'][0],
+                    'lng' => $features['geometry']['coordinates'][1],
                 ],
             ];
         }
