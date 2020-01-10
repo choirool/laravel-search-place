@@ -2,8 +2,9 @@
 
 namespace Choirool\SearchPlace;
 
-use Choirool\SearchPlace\Providers\Google;
-use Choirool\SearchPlace\Providers\Mapbox;
+
+use Choirool\SearchPlace\Providers\Google\Google;
+use Choirool\SearchPlace\Providers\Mapbox\Mapbox;
 use Choirool\SearchPlace\Exceptions\UnsetApiKeyException;
 use Choirool\SearchPlace\Exceptions\InvalidServiceException;
 

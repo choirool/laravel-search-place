@@ -1,6 +1,6 @@
 <?php
 
-namespace Choirool\SearchPlace\Providers;
+namespace Choirool\SearchPlace\Providers\Mapbox;
 
 use GuzzleHttp\Client;
 

@@ -1,19 +1,22 @@
 <?php
 
-namespace Choirool\SearchPlace\Providers;
+namespace Choirool\SearchPlace\Providers\Google;
 
 use GuzzleHttp\Client;
+use Choirool\SearchPlace\Providers\Google\Formatter;
 
 class Google
 {
     protected $http;
+    protected $formatter;
 
     public function __construct()
     {
         $this->http = new Client;
+        $this->formatter = new Formatter;
     }
 
-    public function search($keywords = '')
+    protected function get($keywords)
     {
         $response = $this->http->get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', [
             'query' => [
@@ -24,6 +27,15 @@ class Google
             ]
         ]);
 
-        return json_decode((string) $response->getBody(), true);
+        $data = json_decode((string) $response->getBody(), true);
+
+        return $this->formatter
+                    ->setData($data)
+                    ->format();
+    }
+
+    public function search($keywords = '')
+    {
+        return $this->get($keywords);
     }
 }
